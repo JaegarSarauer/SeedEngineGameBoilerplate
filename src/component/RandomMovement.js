@@ -1,6 +1,9 @@
 import {Component, Point, SceneManager, Bounds} from 'seed-engine';
 
 export default class RandomMovement extends Component {
+    /**
+     * Creates a new direction point (vector) to begin moving as.
+     */
     constructor() {
         super(true);
         this.className = 'RandomMovement';
@@ -8,10 +11,18 @@ export default class RandomMovement extends Component {
         this.sceneViewportBounds = new Bounds();
     }
 
+    /**
+     * Gets the bounds of the viewport once. If your viewports aren't going to be changing,
+     * this saves wasted time spent getting the bounds each update.
+     */
     onStart() {
         this.sceneViewportBounds = SceneManager.getCurrentScene().viewports[0].bounds;
     }
 
+    /**
+     * Moves in the direction of this.direction until it comes
+     * in contact to one of the edges of the viewport.
+     */
     onUpdate() {
         let transform = this.gameObject.transform;
         let position = transform.getPosition();
