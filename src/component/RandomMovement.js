@@ -7,7 +7,7 @@ export default class RandomMovement extends Component {
     constructor() {
         super(true);
         this.className = 'RandomMovement';
-        this.direction = new Point(Math.random() * 20 - 10, Math.random() * 20 - 10);
+        this.direction = new Point(Math.random() * 2 - 1, Math.random() * 2 - 1);
         this.sceneViewportBounds = new Bounds();
     }
 
@@ -16,7 +16,7 @@ export default class RandomMovement extends Component {
      * this saves wasted time spent getting the bounds each update.
      */
     onStart() {
-        this.sceneViewportBounds = SceneManager.getCurrentScene().viewports[0].bounds;
+        this.sceneViewportBounds = SceneManager.getCurrentScene().viewports[this.gameObject.viewport].bounds;
     }
 
     /**

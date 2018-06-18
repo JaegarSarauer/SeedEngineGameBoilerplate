@@ -1,20 +1,23 @@
-import {BasicScene} from 'seed-engine';
+import {Scene, Viewport, DOMManager} from 'seed-engine';
 import Player from '../object/Player';
 import RandomMovement from '../component/RandomMovement';
 
 /**
  * The main scene of the game, containing one fullscreen view.
  */
-export default class MainScene extends BasicScene {
+export default class MainScene extends Scene {
     constructor() {
         super();
+        this.registerViewport(new Viewport(0, 0, DOMManager.canvasWidth / 2, DOMManager.canvasHeight));
+        this.registerViewport(new Viewport(DOMManager.canvasWidth / 2, 0, DOMManager.canvasWidth / 2, DOMManager.canvasHeight / 2));
+        this.registerViewport(new Viewport(DOMManager.canvasWidth / 2, DOMManager.canvasHeight / 2, DOMManager.canvasWidth / 2, DOMManager.canvasHeight / 2));
     }
 
     /**
      * When this scene is started, it creates 20 players.
      */
     onStart() {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 2000; i++) {
             new Player();
         }
     }

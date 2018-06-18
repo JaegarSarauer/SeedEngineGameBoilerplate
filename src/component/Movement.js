@@ -2,7 +2,7 @@ import {Component, Point, SceneManager, TopDownController} from 'seed-engine';
 
 export default class Movement extends TopDownController {
     constructor() {
-        super(true);
+        super();
         this.className = 'TopDownController';
     }
 
