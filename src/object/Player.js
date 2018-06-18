@@ -1,5 +1,6 @@
-import {SceneObject, Renderable2D, Point, DOMManager} from 'seed-engine';
+import {SceneObject, Renderable2D, Point, DOMManager, ClickController} from 'seed-engine';
 import RandomMovement from '../component/RandomMovement';
+import Movement from '../component/Movement';
 
 /**
  * An example class of how a SceneObject should be written. This player doesn't actually have any way
@@ -16,7 +17,13 @@ export default class Player extends SceneObject {
         renderable.addToViewport(0);
         renderable.color.set(Math.random(), Math.random(), Math.random());
 
-        this.addComponent(new RandomMovement());
+        //this.addComponent(new RandomMovement());
+        this.addComponent(new Movement());
+
+        this.addComponent(new ClickController((event) => {
+            renderable.color.set(Math.random(), Math.random(), Math.random());
+        }));
+
         this.transform.centerOrigin();
     }
 

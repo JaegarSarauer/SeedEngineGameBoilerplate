@@ -2,9 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-    entry: 'src/entry.js',
+    entry: './src/entry.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js'
     },
      resolve: {
@@ -13,7 +13,7 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
-        publicPath: "/dist/",
+        publicPath: "/public/",
         watchContentBase: true
     }
 }

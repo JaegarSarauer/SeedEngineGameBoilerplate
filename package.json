@@ -2,10 +2,10 @@
     "name": "seed-engine-boilerplate",
     "version": "1.0.0",
     "description": "A boilerplate for creating a game to be used with the Seed Engine.",
-    "main": "./src/entry.js",
+    "main": "src/entry.js",
     "scripts": {
         "start": "webpack-dev-server",
-        "build": "webpack --mode development",
+        "build": "webpack --mode production",
         "test": "test"
     },
     "repository": {
